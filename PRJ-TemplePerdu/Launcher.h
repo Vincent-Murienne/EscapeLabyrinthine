@@ -7,11 +7,9 @@
 *	Declaration de fonctions
 *
 */
-struct Character;
-struct Trap;
 
-void Launch();
-void MainMenu();
-void ExitApp();
+//void Launch();
+//void MainMenu();
+//void ExitApp();
 
 #endif LAUNCHER_H
