@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <../EscapeLabyrinthine/PRJ-TemplePerdu/Global.h>
+#include "Global.c"
 
 //int Parcours() {
 //

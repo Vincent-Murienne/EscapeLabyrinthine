@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include <../EscapeLabyrinthine/PRJ-TemplePerdu/Global.c>
+#include "Global.c"
+
 
 //void Launch()
 //{
