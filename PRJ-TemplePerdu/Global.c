@@ -1,9 +1,8 @@
 typedef struct {
-	char name[50];
+	char pseudo[50];
+	char arme[50];
 	int health;
 	int damage;
-	char weapon[50];
-	char typeAttack[];
 } Character;
 
 typedef struct {

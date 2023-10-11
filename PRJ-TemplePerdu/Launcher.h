@@ -8,6 +8,7 @@
 *
 */
 
+void menu();
 //void Launch();
 //void MainMenu();
 //void ExitApp();

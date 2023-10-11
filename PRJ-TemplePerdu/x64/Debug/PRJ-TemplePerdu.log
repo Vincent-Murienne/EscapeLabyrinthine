@@ -1,8 +1,6 @@
-﻿  Games.c
-C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Games.c(75,17): warning C4473: 'scanf_s' : nombre insuffisant d'arguments passés pour la chaîne de format
-C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Games.c(75,17): message : les espaces réservés et leurs paramètres attendent des arguments 2 variadiques, mais des arguments 1 ont été fournis
-C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Games.c(75,17): message : l'argument variadique manquant 2 est demandé par la chaîne de format '%c'
-C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Games.c(75,17): message : cet argument est utilisé comme taille de mémoire tampon
-  main.c
-  Génération de code en cours...
+﻿  Launcher.c
+C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Launcher.c(62,9): warning C4129: ' ' : caractère de séquence d'échappement non reconnu
+C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Launcher.c(63,9): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
+C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Launcher.c(63,9): warning C4129: ' ' : caractère de séquence d'échappement non reconnu
+C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Launcher.c(81,3): warning C4013: 'exit' non défini(e) ; extern retournant int pris par défaut
   PRJ-TemplePerdu.vcxproj -> C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\x64\Debug\PRJ-TemplePerdu.exe

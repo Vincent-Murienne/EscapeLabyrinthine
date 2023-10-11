@@ -1,15 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-
 #include "Games.h"
 #include "Launcher.h"
 #include "Global.h"
-#define _CRT_SECURE_NO_WARNINGS
 
 
 int main(void)
 {
 	/*Parcours();*/
-	Games();
+	menu();
+	/*Games();*/
 	//Launch();
 	//MainMenu();
 	//ExitApp();
