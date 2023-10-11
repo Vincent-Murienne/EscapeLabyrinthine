@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers sources\Games">
+      <UniqueIdentifier>{38264bae-6c47-4d0d-8b75-116a82c2a464}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Launcher">
+      <UniqueIdentifier>{aa4d95e0-77a1-44a4-9d29-538eece37856}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Global">
+      <UniqueIdentifier>{738eafd3-99b7-4897-b8d3-ed15b1095ead}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Games.c">
+      <Filter>Fichiers sources\Games</Filter>
+    </ClCompile>
+    <ClCompile Include="Launcher.c">
+      <Filter>Fichiers sources\Launcher</Filter>
+    </ClCompile>
+    <ClCompile Include="Global.c">
+      <Filter>Fichiers sources\Global</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Games.h">
+      <Filter>Fichiers sources\Games</Filter>
+    </ClInclude>
+    <ClInclude Include="Launcher.h">
+      <Filter>Fichiers sources\Launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.h">
+      <Filter>Fichiers sources\Global</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
