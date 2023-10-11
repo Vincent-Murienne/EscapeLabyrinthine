@@ -10,8 +10,6 @@
 struct Character;
 struct Trap;
 
-void Launch();
-void MainMenu();
-void ExitApp();
+void menu();
 
 #endif LAUNCHER_H

@@ -1,14 +1,10 @@
-#include <stdio.h>
-#include "Launcher.h"
 #define _CRT_SECURE_NO_WARNINGS
+#include "Launcher.h"
+
 
 
 int main(void)
 {
-
-	Launch();
-	MainMenu();
-	ExitApp();
-
+	menu();
 	return 0;
 }
