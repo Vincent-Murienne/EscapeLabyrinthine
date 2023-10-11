@@ -1,4 +1,5 @@
 ﻿  Launcher.c
+C:\Users\murie\Documents\EscapeLabyrinthine\PRJ-TemplePerdu\Launcher.c(3,10): fatal  error C1083: Impossible d'ouvrir le fichier include : '../EscapeLabyrinthine/PRJ-TemplePerdu/Global.c' : No such file or directory
   main.c
+C:\Users\murie\Documents\EscapeLabyrinthine\PRJ-TemplePerdu\main.c(3,10): fatal  error C1083: Impossible d'ouvrir le fichier include : '../EscapeLabyrinthine/PRJ-TemplePerdu/Launcher.h' : No such file or directory
   Génération de code en cours...
-  PRJ-TemplePerdu.vcxproj -> C:\Users\murie\Documents\Project\Le-Defi-Du-Labyrinthe\PRJ-TemplePerdu\PRJ-TemplePerdu\x64\Debug\PRJ-TemplePerdu.exe
