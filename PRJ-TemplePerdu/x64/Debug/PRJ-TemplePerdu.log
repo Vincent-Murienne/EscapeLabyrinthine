@@ -1,6 +1,3 @@
-﻿  Launcher.c
-C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Launcher.c(62,9): warning C4129: ' ' : caractère de séquence d'échappement non reconnu
-C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Launcher.c(63,9): warning C4129: 'V' : caractère de séquence d'échappement non reconnu
-C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Launcher.c(63,9): warning C4129: ' ' : caractère de séquence d'échappement non reconnu
-C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Launcher.c(81,3): warning C4013: 'exit' non défini(e) ; extern retournant int pris par défaut
-  PRJ-TemplePerdu.vcxproj -> C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\x64\Debug\PRJ-TemplePerdu.exe
+﻿  Games.c
+Launcher.obj : error LNK2005: cleanConsole déjà défini(e) dans Global.obj
+C:\Users\murie\OneDrive\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\x64\Debug\PRJ-TemplePerdu.exe : fatal error LNK1169: un ou plusieurs symboles définis à différentes reprises ont été rencontrés
