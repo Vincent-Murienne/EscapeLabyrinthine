@@ -4,12 +4,11 @@
 #include "Launcher.h"
 #include "Global.h"
 
-
 int main(void)
 {
 	/*Parcours();*/
 	menu();
-	/*Games();*/
+	Games();
 	//Launch();
 	//MainMenu();
 	//ExitApp();

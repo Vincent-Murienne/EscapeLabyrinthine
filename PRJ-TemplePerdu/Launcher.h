@@ -9,6 +9,7 @@
 */
 
 void menu();
+void cleanConsole();
 //void Launch();
 //void MainMenu();
 //void ExitApp();

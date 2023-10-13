@@ -1,0 +1,4 @@
+﻿  Games.c
+C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Games.c(43,15): warning C4244: 'fonction' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1134,5): error MSB6006: Arrêt de "link.exe" avec le code 1168.
+LINK : fatal error LNK1168: impossible d'ouvrir C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\Debug\PRJ-TemplePerdu.exe pour écrire

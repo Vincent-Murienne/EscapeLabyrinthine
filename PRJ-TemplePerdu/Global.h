@@ -3,5 +3,5 @@
 
 struct Character;
 struct Trap;
-
+//void cleanConsole();
 #endif GLOBAL_H

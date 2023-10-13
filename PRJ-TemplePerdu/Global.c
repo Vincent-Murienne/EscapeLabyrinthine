@@ -1,11 +1,16 @@
-typedef struct {
+#include <stdlib.h>
+
+typedef	struct{
 	char pseudo[50];
 	char arme[50];
 	int health;
-	int damage;
+	signed int damage;
 } Character;
 
 typedef struct {
 	int damage;
-	int health;
 } Trap;
+
+//void cleanConsole() {
+//	system("cls");
+//}
