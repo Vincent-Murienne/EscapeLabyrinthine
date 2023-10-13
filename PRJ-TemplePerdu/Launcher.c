@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-#include "Global.h"
+#include "Global.c"
 
 
 //void Launch()
@@ -54,9 +54,9 @@
 //
 //}
 
-//void cleanConsole() {
-//	system("cls");
-//}
+void cleanConsole() {
+	system("cls");
+}
 
 int menu()
 {
