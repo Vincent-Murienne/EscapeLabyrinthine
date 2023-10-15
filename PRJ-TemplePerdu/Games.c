@@ -1,11 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <windows.h>
-//#include "Global.h"
+#include <string.h>
+#include "Global.h"
+#include "windows.h"
 #include "Launcher.h"
-#include "Global.c"
-#define ROWS 5
-#define COLS 5
+//#include "Global.c"
+#define ROWS 7
+#define COLS 7
 
 //int Parcours() {
 //
@@ -37,310 +38,206 @@
 //    return 0;
 //}
 
-//int Games(){  
-//       // Character Joueur;
-//   // Character Zombie;
-//   // Joueur.health = 100;
-//   // Zombie.health = 50;
-//    Character Joueur = { "%s", "%s", 100, 10 };
-//    Character Zombie = { "%s", "%s", 50, 5 };
-//
-//
-//
-//
-//
-//    // Définition du labyrinthe
-//    int labyrinthe[ROWS][COLS] = {
-//        {0, 0, 0, 0, 1},
-//        {0, 0, 1, 0, 1},
-//        {1, 0, 0, 0, 0},
-//        {0, 1, 0, 1, 1},
-//        {0, 0, 0, 0, 1}
-//    };
-//
-//    // 0 = chemin
-//    // 1 = mur
-//    
-//    
-//    // Position de départ du joueur
-//    int position_joueur[2] = {0,0};
-//
-//    // Position de l'objectif
-//    int objectif[2] = {3,0};
-//
-//    // Boucle principale du jeu   
-//
-//    // /* Problème à régler --> L'affichage du labyrinthe se fait en boucle
-//    // + message d'erreur qui s'affiche alors qu'il devrait pas mais si on arrive au bout message de victoire qui
-//    // s'affiche */
-//
-//    while (position_joueur[0] != objectif[0] || position_joueur[1] != objectif[1]) {
-//        // Afficher le labyrinthe
-//        for (int i = 0; i < ROWS; ++i) {
-//            for (int j = 0; j < COLS; ++j) {
-//                if (i == position_joueur[0] && j == position_joueur[1]) {  // position_joueur[0] = ligne et position_joueur[1] = colonnes
-//                    printf("P "); // Position du joueur
-//                }
-//                else if (i == objectif[0] && j == objectif[1]) {
-//                    printf("O "); // Position de l'objectif
-//                }
-//                else {
-//                    printf("%d ", labyrinthe[i][j]); // Afficher le labyrinthe
-//                }
-//            }
-//            printf("\n");
-//
-//        }
 int Games() {
-    // Character Joueur;
- // Character Zombie;
- // Joueur.health = 100;
- // Zombie.health = 50;
+
+    //struct Character Joueur = { "%s", "%s", 100, 20 };
+    //printJoueur(Joueur);
+
     Character Joueur = { "%s", "%s", 100, 20 };
-    Character Zombie = { "%s", "%s", 10, 10 };
+    Character Zombie = { "%s", "%s", 20, 20 };
     Trap Pic = { 10 };
+    Trap Falaise = { 100 };
 
 
 
-    // Définition du labyrinthe
+    // Définition du labyrinthe : 0 = chemin, 1 = mur
+
     int labyrinthe[ROWS][COLS] = {
-        {0, 0, 0, 0, 1},
-        {0, 0, 1, 0, 1},
-        {1, 0, 0, 0, 0},
-        {0, 1, 0, 1, 1},
-        {0, 0, 0, 0, 1}
+    {0, 0, 0, 0, 1, 0, 1},
+    {0, 0, 1, 0, 1, 0, 0},
+    {1, 0, 0, 0, 0, 0, 1},
+    {0, 1, 0, 1, 1, 1, 0},
+    {0, 0, 0, 0, 1, 1, 0},
+    {0, 1, 1, 0, 0, 0, 0},
+    {0, 0, 0, 0, 1, 0, 0}
     };
 
-    // 0 = chemin
-    // 1 = mur
-
-
-    // Position de départ du joueur
-    int position_joueur[2] = { 0,0 };
-
-    // Position de l'objectif
-    int objectif[2] = { 3,0 };
-
-    // Boucle principale du jeu   
-
-    // /* Problème à régler --> L'affichage du labyrinthe se fait en boucle
-    // + message d'erreur qui s'affiche alors qu'il devrait pas mais si on arrive au bout message de victoire qui
-    // s'affiche */
-
+    int visite[ROWS][COLS] = { 0 }; // Tableau pour garder trace des cases visitées
+    int carte[2] = { 5, 5 }; // Position de la carte
+    int position_joueur[2] = { 0, 0 }; // Position du joueur
+    int objectif[2] = { 3, 0 }; // Position de l'objectif
     while (position_joueur[0] != objectif[0] || position_joueur[1] != objectif[1]) {
-        // Afficher le labyrinthe
-        for (int i = 0; i < ROWS; ++i) {
+        for (int i = 0; i < ROWS; ++i) { 
             for (int j = 0; j < COLS; ++j) {
-                if (i == position_joueur[0] && j == position_joueur[1]) {  // position_joueur[0] = ligne et position_joueur[1] = colonnes
-                    printf("P "); // Position du joueur
+                if (i == position_joueur[0] && j == position_joueur[1]) {
+                    printf(" P "); // Afficher la position du joueur
                 }
-                else if (i == objectif[0] && j == objectif[1]) {
-                    printf("O "); // Position de l'objectif
+                else if (visite[i][j] == 1) {
+                    printf(" %d ", labyrinthe[i][j]); // Afficher la valeur de la case visitée
+                }
+                else if (position_joueur[0] == carte[0] && position_joueur[1] == carte[1]) {
+                    if (i == objectif[0] && j == objectif[1]) {
+                        printf(" A "); // Afficher la position de l'objectif
+                    }
+                    else {
+                        printf(" %d ", labyrinthe[i][j]); // Afficher la valeur de la case sur la carte
+                    }
+                }
+                else if (labyrinthe[i][j] == 0) {
+                    printf(" - "); // Afficher "-" sur les cases vides
                 }
                 else {
-                    printf("%d ", labyrinthe[i][j]); // Afficher le labyrinthe
+                    printf(" # "); // Afficher "1" sur les murs
                 }
             }
             printf("\n");
         }
-        // if ((position_joueur[0] == 1 && position_joueur[1] == 0) ||
-    // (position_joueur[0] == 4 && position_joueur[1] == 3) ||
-    // (position_joueur[0] == 0 && position_joueur[1] == 3)) {
-    // printf("%s ,tu es sur le point d'affronter le zombie .\n",Joueur.pseudo);
-    // printf("Vous venez de perdre 20 points de vie.\n");
-    // if (Joueur.health < 100) {
-         //Joueur.health -= 20;
-        // if (Joueur.health > 100) {
-            // Joueur.health = 100;
 
         if ((position_joueur[0] == 1 && position_joueur[1] == 0) ||
             (position_joueur[0] == 4 && position_joueur[1] == 3) ||
             (position_joueur[0] == 0 && position_joueur[1] == 3))
         {
-            printf(" Tu es sur le point d'affronter un zombie.\n");
+            printf("\nUn Zombie apparait, il a l'air coriace !!\n");
 
-            int nb_coups = 0;
+            Joueur.health -= Zombie.damage;
+            Zombie.health -= Joueur.damage;
 
-            while (Zombie.health > 0)
+            printf("\nIl a reussit a vous toucher et a vous retirer : %d points de vie ", Zombie.damage);
+
+            if (Zombie.health <= 0)
             {
-                nb_coups++;
-                Joueur.health -= Zombie.damage;
-                Zombie.health -= Joueur.damage;
-            }
-
-            printf("Tu viens de perdre 20 points de vie.\n");
-            printf("PV actuel : %d\n", Joueur.health);
-            printf("\n Zombie tue en %d coups", nb_coups);
-
-            if (Joueur.health > 0)
+                printf("\nVous reussissez a infliger une attaque ! : %d points de degats\n", Joueur.damage);
+				printf("\nFelicitations ! Vous avez vaincu le zombie !\n");
+				printf("Points de vie actuel : %d\n", Joueur.health);
+			}
+			else if (Joueur.health <= 0) 
             {
-                Joueur.health -= Zombie.damage;
-                printf("%d", Joueur.health);
-
-                if (Joueur.health < 0)
-                {
-                    Joueur.health = 0;
-                    printf("Vous avez perdu la partie");
-                }
-                else if (Joueur.health > 100)
-                {
-                    Joueur.health = 100;
-                }
+                printf("\nOh non ! Son attaque etait mortelle, vous venez de perdre le combat ...\n");
+                printf("\nVous avez perdu la partie\n");
+                exit(0); // Terminer le jeu si le joueur est mort
             }
-
         }
 
-        if ((position_joueur[0] == 2 && position_joueur[1] == 2) ||
-            (position_joueur[0] == 4 && position_joueur[1] == 0))
+        else if ((position_joueur[0] == 2 && position_joueur[1] == 2) ||
+            (position_joueur[0] == 4 && position_joueur[1] == 0) ||
+            (position_joueur[0] == 3 && position_joueur[1] == 6) ||
+            (position_joueur[0] == 5 && position_joueur[1] == 6) ||
+            (position_joueur[0] == 6 && position_joueur[1] == 0))
         {
-            printf("Attention il y a un pic sur ce chemin");
-
             Joueur.health -= Pic.damage;
-            //printf("Vous avez perdu %d point\n", Pic.damage);
-            printf("\nVous avez actuellement %d pv", Joueur.health);
-            printf("\nVous avez perdu %d point\n", Pic.damage);
-            if (Joueur.health < 0)
+            printf("Oh non, vous avez marche sur un pic !\n");
+            printf("\nVous avez perdu %d points de vie ...\n", Pic.damage);
+            printf("Points de vie actuel : %d\n", Joueur.health);
+            if (Joueur.health <= 0)
             {
                 printf("\nVous avez perdu la partie\n");
+                exit(0);
             }
 
         }
-        if ((position_joueur[0] == 2 && position_joueur[1] == 4))
+
+        else if ((position_joueur[0] == 2 && position_joueur[1] == 4) ||
+            (position_joueur[0] == 4 && position_joueur[1] == 1))
         {
-            int rep2 = 0;
-            printf("Il y a une falaise devant vous\n");
-            Joueur.health -= 100;
-            printf("\nvous avez perdu la partie");
-            printf("\nvoulez vous retourner a l'acceuil?\n\ 1-Oui \n\ 2-Non\n");
+            unsigned int reponse = 0;
+            printf("Oh non !! Vous venez de tomber maladroitement du haut d'une falaise !!\n");
+            Joueur.health -= Falaise.damage;
+            printf("La chute etait fatal !!\n");
+            printf("\nVous avez perdu la partie\n");
+            printf("\nVoulez-vous retourner a l'acceuil?\n1-Oui\n2-Non\n");
 
-            scanf("%d", rep2);
-            if (rep2 == 1)
-            {
+            scanf("%d", &reponse);
 
+            if (reponse == 1) {
+
+                // Code pour revenir au menu principal
+                cleanConsole();
+                position_joueur[0] = 0;
+                position_joueur[1] = 0;
+                memset(visite, 0, sizeof(visite));
+                menu();
             }
-            else if (rep2 == 2)
-            {
-                printf("Merci d'avoir jouer a bientot");
+            else if (reponse == 2) {
+                printf("Merci d'avoir joue, a bientot");
                 Sleep(2000);
+                exit(0);
             }
+
         }
 
+        visite[position_joueur[0]][position_joueur[1]] = 1; // Marque la case comme visitée
 
-            // Demander au joueur de fournir une direction (haut, bas, gauche, droite)
-            printf("\nEntrez votre prochaine direction (haut : h, bas : b, gauche : g, droite : d) : ");
-            char direction;
-            scanf(" %c", &direction);
+        if (position_joueur[0] == carte[0] && position_joueur[1] == carte[1]) {
+            printf("\n");
+            printf("Bravo, vous avez trouve une carte! !\n");
+            printf("Il semblerait qu'elle est capable d'indiquer ou se trouve le tresor.\n");
+            printf("\n");
+        }
 
-            // Mettre à jour la position du joueur en fonction de la direction
-            switch (direction) {
+        printf("\nEntrez votre prochaine direction (haut : h, bas : b, gauche : g, droite : d) : ");
+        char direction;
+        scanf(" %c", &direction);
+
+        cleanConsole(); // Nettoie la console
+
+        switch (direction) {
             case 'h':
                 if (position_joueur[0] > 0 && labyrinthe[position_joueur[0] - 1][position_joueur[1]] != 1) {
                     position_joueur[0]--;
-                    cleanConsole();
                 }
                 break;
             case 'b':
                 if (position_joueur[0] < ROWS - 1 && labyrinthe[position_joueur[0] + 1][position_joueur[1]] != 1) {
                     position_joueur[0]++;
-                    cleanConsole();
                 }
                 break;
             case 'g':
                 if (position_joueur[1] > 0 && labyrinthe[position_joueur[0]][position_joueur[1] - 1] != 1) {
                     position_joueur[1]--;
-                    cleanConsole();
                 }
                 break;
             case 'd':
                 if (position_joueur[1] < COLS - 1 && labyrinthe[position_joueur[0]][position_joueur[1] + 1] != 1) {
                     position_joueur[1]++;
-                    cleanConsole();
                 }
                 break;
             default:
-                printf("Déplacement invalide. Essayez une autre direction.\n");
+                printf("Deplacement invalide. Essayez une autre direction.\n");
                 break;
-            }
         }
-
-        //printf("Felicitations! Vous avez atteint l'objectif!\n");
-
-
-        return 0;
-
     }
+    printf("Vous avez trouve le tresor !\n");
+    printf("\nVous decidez de l'ouvrir et decouvrez une arme et des milliers de lingots d'or !\n");
+    printf("\nFelicitations, vous avez gagne la partie !\n");
+    
+    return 0;
 
-    //    // Demander au joueur de fournir une direction (haut, bas, gauche, droite)
-    //    printf("Entrez votre prochaine direction (haut : h, bas : b, gauche : g, droite : d ) ");
-    //    char direction;
-    //    scanf(" %c", &direction);
-
-    //    // Mettre à jour la position du joueur en fonction de la direction
-    //    switch (direction) {
-    //    case 'h':
-    //        if (position_joueur[0] > 0 && labyrinthe[position_joueur[0] - 1][position_joueur[1]] != 1) {
-    //            position_joueur[0]--;
-    //            cleanConsole();
-    //        }
-    //        break;
-    //    case 'b':
-    //        if (position_joueur[0] < ROWS - 1 && labyrinthe[position_joueur[0] + 1][position_joueur[1]] != 1) {
-    //            position_joueur[0]++;
-    //            cleanConsole();
-    //        }
-    //        break;
-    //    case 'g':
-    //        if (position_joueur[1] > 0 && labyrinthe[position_joueur[0]][position_joueur[1] - 1] != 1) {
-    //            position_joueur[1]--;
-    //            cleanConsole();
-    //        }
-    //        break;
-    //    case 'd':
-    //        if (position_joueur[1] < COLS - 1 && labyrinthe[position_joueur[0]][position_joueur[1] + 1] != 1) {
-    //            position_joueur[1]++;
-    //            cleanConsole();
-    //        }
-    //        break;
-    //    default:
-    //        printf("Déplacement invalide. Essayez une autre direction.\n");
-    //        break;
-    //    }
-    //}
-
-    //printf("Félicitations! Vous avez atteint l'objectif!\n");
-
-    //return 0;
-//}
+}
 
 
-// Fonction Pointeur
-//void test() {
-//    int Player = 4;
-//    int PlayerAdress = &Player;
-//    int* p = &Player;
-//
-//
-//    printf("Player = %d\n", Player);
-//    printf("PlayerAdress = %d\n", PlayerAdress);
-//    printf("&Player = %d\n", &Player);
-//    printf("p = %d\n", *p);
-//    printf("p = %p\n", p);
-//
-//    int Monster = 5;
-//    printf(EnnemyAttack(Monster));
-//
-//	//int a = 5;
-//	//int* p = &a;
-//	//printf("a = %d\n", a);
-//	//printf("p = %d\n", *p);
-//	//printf("p = %p\n", p);
-//	//printf("&a = %p\n", &a);
-//	//printf("&p = %p\n", &p);
-//}
-//
-//int EnnemyAttack(int EnemyHealth)
-//{
-//    EnemyHealth = EnemyHealth - 1;
-//	return EnemyHealth;
-//
-//}
+// Problème à résoudre : Quand j'écris une chaine de caractère dans la console qui commence par 'd, g, h, b', le programme se déplace dans la direction correspondante
+// Exemple : Je veux écrire "Bonjour", mais le programme se déplace vers la droite car le premier caractère est 'b'
+// Quand j'ai 0 point de vie il y a 0 reset, je peux continuer à jouer
+// Quand j'affronte un zombie, je meurs directement
+// Gérer le problème du Global.h qui ne fonctionne pas avec les structures
+// A l'accueil il est possible de skip le choix de l'arme et du pseudo et direct rentrer dans le jeu si on fait d,h,g,b
+// Bug des pièges qui doit nous tuer mais ne le fait pas + bug message quand on retombe sur le même piège d'affilé
+
+
+// Evolution possible de jeu : Vrai interface graphique (SDL, SFML, etc.), sauvegarde de la partie, système de combat plus poussé, etc.
+// Vrai impact choix des armes sur les combats
+// Ajouter des objets à ramasser (potion de vie, potion de force, etc.)
+// Ajouter des ennemis plus puissants (boss, etc.)
+// Ajouter des énigmes
+// Ajouter des pièges
+// Ajouter des coffres
+// Ajouter des portes à ouvrir avec des clés
+// Ajouter des niveaux
+// Ajouter des quêtes
+// Ajouter des PNJ
+// Ajouter des dialogues
+// Ajouter des choix
+// Ajouter des fins différentes
+// Ajouter des statistiques
+// Ajouter des sorts
+// Ajouter des compétences

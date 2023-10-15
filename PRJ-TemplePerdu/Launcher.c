@@ -3,103 +3,53 @@
 #include <stdlib.h>
 #include <string.h>
 #include <windows.h>
-#include "Global.c"
-
-
-//void Launch()
-//{
-//	Character player;
-//	int game = 0;
-//	//scanf_s("%c", &player.name);
-//}
-//
-//void ExitApp()
-//{
-//	printf("Exiting...\n");
-//	/*exit(0);*/
-//}
-//
-//
-//
-//void MainMenu()
-//{
-//
-//	enum MenuButtons {
-//		Load_Game = 1,
-//		Exit
-//	};
-//
-//	int MenuChoice = 2;
-//
-//	enum MenuButtons MyMenu = MenuChoice;
-//
-//
-//	switch (MenuChoice)
-//	{
-//	case Load_Game:
-//		Launch();
-//		break;
-//	case Exit:
-//		ExitApp();
-//		break;
-//	default:
-//		printf("Invalid choice\n");
-//		break;
-//	};
-//
-//
-//	printf("Welcome to the Launcher!\n");
-//	printf("1. Launch a game\n");
-//	printf("2. Exit\n");
-//
-//}
-
-void cleanConsole() {
-	system("cls");
-}
+#include "Global.h"
 
 int menu()
 {
-	int rep;
+
+	unsigned int reponse;
 	Character Joueur;
 
-	//Character Zombie("Zombie","Point",50, 50);
+	printf("Bienvenue dans Le Defi Du Labyrinthe.\n");
+	printf("Dans ce jeu, vous incarnerez un aventurier intrepide qui a decouvert un ancien temple mystique perdu depuis des siecles.");
+	printf("\nCe temple est repute pour ses tresors legendaires, mais aussi pour les pieges mortels qui l'y protegent.");
+	printf("\nVotre but : Explorer le temple et surmonter les obstacles pour atteindre le tresor legendaire.\n");
+	printf("\n\Voulez vous..\n\ 1 Commencer le jeu\n\ 2 Quitter l'application\n\ ");
 
-	// SI point de vie < 0 alors game over
-	// Voulez-vous retourner à l'accueil ?
-	// Si oui, alors menu() + sleep(2000)
-	// Si non, alors printf("Merci d'avoir joué) + sleep(2000) + exit(0)
+	scanf("%d", &reponse);
 
-	printf("Bienvenue dans Le Defi Du Labyrinthe.\n\ Dans ce jeu vous alllez choisir a parcourir des chemins qui pourront vous emmeneze vers un tresor");
-	printf("\n\Voulez vous..\n\ 1 Commencer \n\ 2 Rester sur cette page\n\ ");
-	scanf("%d", &rep);
-
-	if (rep == 1)
+	if (reponse == 1)
 	{
-		printf("Avant de commencer, veuillez choisir un pseudo : \n");
+		printf("\nAvant de commencer, veuillez choisir un pseudo :\n");
+		printf("\nChoisissez votre pseudo :\n");
 		scanf("%s", Joueur.pseudo);
 		printf("\nBienvenue, %s ! Maintenant vous devriez choisir une arme.\n", Joueur.pseudo);
-		printf(" Arc\n\ Epee\n\ Hache \n");
-		scanf("%s", Joueur.arme); 
+		printf("\nArc\n\Epee\n\Hache\n");
+		printf("\nQuelle arme souhaitez-vous choisir ? \n");
+		scanf("%s", Joueur.arme);
 
 
 		// Tant que l'utilisateur n'a pas choisi une arme valide, il doit rechoisir une arme
 
 		while (strcmp(Joueur.arme, "Arc") != 0 && strcmp(Joueur.arme, "Epee") != 0 && strcmp(Joueur.arme, "Hache") != 0)
 		{
-			printf("Votre arme n'existe pas \n");
-			printf(" Arc\n\ Epee\n\ Hache \n");
+			cleanConsole();
+			printf("Votre arme n'existe pas\n");
+			printf("\nQuelle arme souhaitez-vous choisir ? \n");
+			printf("\nArc\n\Epee\n\Hache\n");
 			scanf("%s", Joueur.arme);
 		}
-		
-		printf("Vous avez choisie l'arme : %s", Joueur.arme);
-		printf("\n Tout est bon, la partie peut commencer !");
+
+		printf("\nVous avez choisie l'arme : %s", Joueur.arme);
+		printf("\nTout est bon, la partie peut commencer !");
 		Sleep(2000);
 		cleanConsole();
 	}
-	else if (rep == 2)
+	else if (reponse == 2)
 	{
-		printf("\nProgramme termine.\n");
+		printf("\nJeu termine.\n");
+		printf("Au plaisir de vous revoir !\n");
 		exit(0);
 	}
 	else {

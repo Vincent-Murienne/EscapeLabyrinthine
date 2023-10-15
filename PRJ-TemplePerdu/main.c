@@ -6,12 +6,8 @@
 
 int main(void)
 {
-	/*Parcours();*/
 	menu();
 	Games();
-	//Launch();
-	//MainMenu();
-	//ExitApp();
-
+	
 	return 0;
 }
