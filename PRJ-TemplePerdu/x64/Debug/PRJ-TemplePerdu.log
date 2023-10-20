@@ -1,3 +1,3 @@
 ﻿  Games.c
-Launcher.obj : error LNK2005: cleanConsole déjà défini(e) dans Global.obj
-C:\Users\murie\OneDrive\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\x64\Debug\PRJ-TemplePerdu.exe : fatal error LNK1169: un ou plusieurs symboles définis à différentes reprises ont été rencontrés
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1134,5): error MSB6006: Arrêt de "link.exe" avec le code 1168.
+LINK : fatal error LNK1168: impossible d'ouvrir C:\Users\murie\Documents\Project\EscapeLabyrinthine\PRJ-TemplePerdu\x64\Debug\PRJ-TemplePerdu.exe pour écrire

@@ -7,8 +7,7 @@
 
 int menu()
 {
-
-	unsigned int reponse;
+	int reponse = 0;
 	Character Joueur;
 
 	printf("Bienvenue dans Le Defi Du Labyrinthe.\n");
@@ -17,7 +16,7 @@ int menu()
 	printf("\nVotre but : Explorer le temple et surmonter les obstacles pour atteindre le tresor legendaire.\n");
 	printf("\n\Voulez vous..\n\ 1 Commencer le jeu\n\ 2 Quitter l'application\n\ ");
 
-	scanf("%d", &reponse);
+	scanf(" %d", &reponse);
 
 	if (reponse == 1)
 	{
@@ -53,7 +52,7 @@ int menu()
 		exit(0);
 	}
 	else {
-		printf("\nCette option n'existe pas veuillez choisir 1 ou 2");
+		printf("\nCette option n'existe pas veuillez choisir 1 ou 2\n");
 	}
 	return 0;
 }

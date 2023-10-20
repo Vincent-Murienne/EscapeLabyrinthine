@@ -7,9 +7,4 @@ struct Character;
 struct Trap;
 void cleanConsole();
 
-//extern Character Joueur;
-//
-//void choisirArme();
-//void choisirPseudo();
-
 #endif GLOBAL_H
